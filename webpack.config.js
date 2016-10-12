@@ -2,12 +2,15 @@ const webpack = require('webpack')
 const fs      = require('fs')
 const path    = require('path'),
       join    = path.join,
-      resolve = path.resolve;
+      resolve = path.resolve
 
 const getConfig = require('hjs-webpack')
 
+require('babel-register')
+
 const NODE_ENV = process.env.NODE_ENV
 const isDev = NODE_ENV === 'development'
+const isTest = NODE_ENV === 'test'
 
 const root    = resolve(__dirname)
 const src     = join(root, 'src')
@@ -77,5 +80,28 @@ const defines = Object.keys(envVariables).reduce((memo, key) => {
 })
 
 config.plugins = [new webpack.DefinePlugin(defines)].concat(config.plugins)
+
+// ******************************
+// *        Test Config         *
+// ******************************
+
+if (isTest) {
+  config.externals = {
+    'react/lib/ReactContext': true,
+    'react/lib/ExecutionEnvironment': true,
+    'react/addons': true
+  }
+
+  config.plugins = config.plugins.filter(p => {
+    const name = p.constructor.toString()
+    const fnName = name.match(/^function (.*)\((.*\))/)
+
+    const idx = [
+      'DedupePlugin',
+      'UglifyJsPlugin'
+    ].indexOf(fnName[1])
+    return idx < 0
+  })
+}
 
 module.exports = config

@@ -1,14 +1,4 @@
-import React from 'react'
 import { render } from 'react-dom'
-
-import './app.css'
-
-class App extends React.Component {
-  render () {
-    return (
-      <div><h1>Environment: {__NODE_ENV__}</h1></div>
-    )
-  }
-}
+import App from './containers/App/App'
 
 render(<App/>, document.getElementById('root'))
