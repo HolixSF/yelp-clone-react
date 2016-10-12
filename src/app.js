@@ -1,12 +1,12 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import styles from './styles.module.css'
+import './app.css'
 
 class App extends React.Component {
   render () {
     return (
-      <div className={styles['container']}>Hello World</div>
+      <div><h1>Environment: {__NODE_ENV__}</h1></div>
     )
   }
 }
