@@ -17,6 +17,7 @@ const src     = join(root, 'src')
 const modules = join(root, 'node_modules')
 const dest    = join(root, 'public')
 
+// HJS Config
 var config = getConfig({
   isDev: isDev,
   in: join(src, 'app.js'),

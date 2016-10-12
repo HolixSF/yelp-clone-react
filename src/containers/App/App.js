@@ -1,16 +1,23 @@
-import React from 'react'
-
-import styles from './styles.module.css'
+import React, { PropTypes } from 'react'
+import { Router } from 'react-router'
 
 export default class App extends React.Component {
+  get content () {
+    return (
+      <Router history={this.props.history} routes={this.props.routes} />
+    )
+  }
+
   render () {
     return (
-      <div className={styles.wrapper}>
-        <h1>
-          <i className='fa fa-star'></i>
-          Environment: {__NODE_ENV__}
-        </h1>
+      <div style={ {height: '100%'} }>
+        {this.content}
       </div>
     )
   }
+}
+
+App.propTypes = {
+  routes: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 }
