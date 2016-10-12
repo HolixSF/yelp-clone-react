@@ -10,7 +10,7 @@ describe('<App />', function () {
   beforeEach(() => {
     wrapper = shallow(<App />)
   })
-
+  
   it('has a single wrapper element', () => {
     expect(wrapper.find(`.${styles.wrapper}`)).to.have.length(1)
   })

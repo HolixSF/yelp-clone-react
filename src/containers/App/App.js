@@ -1,6 +1,6 @@
 import React from 'react'
 
-import './styles.module.css'
+import styles from './styles.module.css'
 
 export default class App extends React.Component {
   render () {
