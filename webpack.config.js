@@ -25,6 +25,15 @@ var config = getConfig({
   clearBeforeBuild: true
 })
 
+// Relative requires
+config.resolve.root = [src, modules]
+config.resolve.alias = {
+  'css': join(src, 'styles'),
+  'containers': join(src, 'containers'),
+  'components': join(src, 'components'),
+  'utils': join(src, 'utils')
+}
+
 // ******************************
 // *        CSS Config          *
 // ******************************
