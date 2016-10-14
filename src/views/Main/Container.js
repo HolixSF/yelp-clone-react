@@ -41,10 +41,6 @@ export class Container extends React.Component {
       return <div>Loading...</div>
     }
 
-    const style = {
-      // width: '100vw',
-      // height: '50vh'
-    }
     const places = this.state.places.map(place => {
       return (<div key={place.id}>{place.name}</div>)
     })
