@@ -45,12 +45,23 @@ export class Container extends React.Component {
       return (<div key={place.id}>{place.name}</div>)
     })
 
+    let children = null
+    if (this.props.children) {
+      children = React.cloneElement(this.props.children, {
+        google: this.props.google,
+        places: this.state.places,
+        loaded: this.props.loaded
+      })
+    }
+
     return (
-      <div style={style}>
+      <div>
         <Map onReady={this.onReady} google={this.props.google} visible={false} className={styles.wrapper}>
           <Header />
           <Sidebar title={'Restaurants'} places={this.state.places}/>
-
+          <div className={styles.content}>
+            {children}
+          </div>
         </Map>
       </div>
     )
