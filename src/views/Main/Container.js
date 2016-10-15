@@ -14,6 +14,7 @@ export class Container extends React.Component {
       pagination: null
     }
     this.onReady = this.onReady.bind(this)
+    this.onMarkerClick = this.onMarkerClick.bind(this)
   }
 
   onReady (mapProps, map) {
@@ -36,6 +37,12 @@ export class Container extends React.Component {
       })
   }
 
+  onMarkerClick (item) {
+    const {place} = item
+    const {push} = this.context.router
+    push(`/map/detail/${place.place_id}`)
+  }
+
   render () {
     if (!this.props.loaded) {
       return <div>Loading...</div>
@@ -50,7 +57,8 @@ export class Container extends React.Component {
       children = React.cloneElement(this.props.children, {
         google: this.props.google,
         places: this.state.places,
-        loaded: this.props.loaded
+        loaded: this.props.loaded,
+        onMarkerClick: this.onMarkerClick
       })
     }
 
@@ -66,6 +74,10 @@ export class Container extends React.Component {
       </div>
     )
   }
+}
+
+Container.contextTypes = {
+  router: React.PropTypes.object
 }
 
 export default GoogleApiWrapper({
