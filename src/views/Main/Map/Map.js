@@ -18,12 +18,13 @@ export default class MapComponent extends React.Component {
                      name={place.id}
                      place={place}
                      position={place.geometry.location}
-                     onClick={this.props.onMarkerClick.bind(this)}
+                     onClick={this.props.onMarkerClick}
                     />
     })
   }
 
   render () {
+    console.log('im in the map compnent')
     return (
       <Map google={this.props.google} className={styles.map}>
         {this.renderMarkers()}

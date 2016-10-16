@@ -1,15 +1,17 @@
 import React from 'react'
-import { Route } from 'react-router'
+import { Route, IndexRoute } from 'react-router'
 
 import Container from './Container'
 import Map from './Map/Map'
-// import Detail from
+import Detail from './Detail/Detail'
 
 const makeMainRoutes = () => {
   return (
     <Route path='/' component={Container}>
       <Route path='map' component={Map} />
-      {/* <Route path='detail/:placeId' component={Detail} /> */}
+        <Route path='detail/:placeId' component={Detail} />
+      {/* </Route> */}
+      <IndexRoute component={Map} />
     </Route>
   )
 }

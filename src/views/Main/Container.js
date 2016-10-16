@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropTypes as T } from 'react'
 import Map, { GoogleApiWrapper } from 'google-maps-react'
 import { searchNearby } from 'utils/googleApiHelpers'
 
@@ -63,21 +63,21 @@ export class Container extends React.Component {
     }
 
     return (
-      <div>
-        <Map onReady={this.onReady} google={this.props.google} visible={false} className={styles.wrapper}>
-          <Header />
-          <Sidebar title={'Restaurants'} places={this.state.places}/>
-          <div className={styles.content}>
-            {children}
-          </div>
-        </Map>
-      </div>
+      <Map onReady={this.onReady} google={this.props.google} visible={false} className={styles.wrapper}>
+        <Header />
+
+        <Sidebar title={'Restaurants'} places={this.state.places}/>
+
+        <div className={styles.content}>
+          {children}
+        </div>
+      </Map>
     )
   }
 }
 
 Container.contextTypes = {
-  router: React.PropTypes.object
+  router: T.object
 }
 
 export default GoogleApiWrapper({
