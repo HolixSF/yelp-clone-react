@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React, { PropTypes as T } from 'react'
 import { Router } from 'react-router'
 
 export default class App extends React.Component {
@@ -17,7 +17,11 @@ export default class App extends React.Component {
   }
 }
 
+App.contextTypes = {
+  router: T.object
+}
+
 App.propTypes = {
-  routes: PropTypes.object.isRequired,
-  history: PropTypes.object.isRequired
+  routes: T.object.isRequired,
+  history: T.object.isRequired
 }
