@@ -1,13 +1,23 @@
 @import url('../../styles/base.css');
+@import url('../../styles/queries.css');
 
 .sidebar {
   height: 100%;
+  position: relative;
   top: var(--topbar-height);
   left: 0;
   overflow: hidden;
-  position: relative;
-  flex: 1;
   z-index: 0;
+
+  flex: 1;
+  order: 2;
+  flex-direction: column;
+
+  @media (--screen-phone-lg) {
+    display: block;
+    flex-direction: row;
+    order: 1;
+  }
 
   .heading {
     flex: 1;
