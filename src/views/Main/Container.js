@@ -7,8 +7,9 @@ import Sidebar from 'components/Sidebar/Sidebar'
 import styles from './styles.module.css'
 
 export class Container extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor (props, context) {
+    super(props, context)
+
     this.state = {
       places: [],
       pagination: null
@@ -33,7 +34,7 @@ export class Container extends React.Component {
         })
       })
       .catch((status, result) => {
-
+        console.log('error fetching nearby', status)
       })
   }
 
@@ -44,20 +45,13 @@ export class Container extends React.Component {
   }
 
   render () {
-    if (!this.props.loaded) {
-      return <div>Loading...</div>
-    }
-
-    const places = this.state.places.map(place => {
-      return (<div key={place.id}>{place.name}</div>)
-    })
-
     let children = null
     if (this.props.children) {
       children = React.cloneElement(this.props.children, {
         google: this.props.google,
         places: this.state.places,
         loaded: this.props.loaded,
+        router: this.context.router,
         onMarkerClick: this.onMarkerClick
       })
     }
@@ -66,7 +60,7 @@ export class Container extends React.Component {
       <Map onReady={this.onReady} google={this.props.google} visible={false} className={styles.wrapper}>
         <Header />
 
-        <Sidebar title={'Restaurants'} places={this.state.places}/>
+        <Sidebar onListItemClick={this.onMarkerClick} title={'Restaurants'} places={this.state.places}/>
 
         <div className={styles.content}>
           {children}
