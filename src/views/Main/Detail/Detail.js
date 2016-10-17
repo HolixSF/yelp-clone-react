@@ -16,7 +16,6 @@ export default class Detail extends React.Component {
 
   componentDidMount () {
     if (this.props.map) {
-      console.log('mounted')
       this.getDetails(this.props.map)
     }
   }
@@ -51,18 +50,21 @@ export default class Detail extends React.Component {
   }
 
   render () {
-    console.log('im in the detail component')
     if (this.state.loading) {
+      console.log('in detail!')
       return (
-        <div className={styles.details}>
+        <div className={styles.wrapper}>
           Loading...
         </div>
       )
     }
     const {place} = this.state
+    console.log('in detail not loading')
     return (
       <div className={styles.wrapper}>
-        <h2>{place.name}</h2>
+        <div className={styles.header}>
+          <h2>{place.name}</h2>
+        </div>
       </div>
     )
   }
