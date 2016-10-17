@@ -10,6 +10,7 @@
 
 .details {
   padding: 0 var(--padding);
+  flex-direction: column;
 
   ::-webkit-scrollbar {
     width: 0px;
@@ -19,7 +20,6 @@
   .photoStrip {
     flex: 1;
     display: flex;
-    flex-wrap: wrap;
     overflow: auto;
 
     img {

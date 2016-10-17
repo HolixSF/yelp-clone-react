@@ -18,7 +18,10 @@
     letter-spacing: 1px;
     line-height: 40px;
 
-    h1 { font-size: 28px; }
+    h1 {
+      font-size: 28px;
+      color: #fff
+    }
   }
 
   section {

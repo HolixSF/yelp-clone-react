@@ -15,11 +15,12 @@
   flex: 1;
 
   @media (--screen-phone-lg) {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 
 .content {
+  height: 600px;
   position: relative;
   top: var(--topbar-height);
   left: 0;
