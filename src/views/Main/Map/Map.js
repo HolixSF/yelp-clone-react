@@ -38,7 +38,7 @@ export default class MapComponent extends React.Component {
   render () {
     const {children} = this.props
     return (
-      <Map onClick={this.props.onClick} map={this.props.map} google={this.props.google} className={styles.map} visible={!children || React.Children.count(children) == 0}>
+      <Map onClick={this.props.onClick} map={this.props.map} google={this.props.google} className={styles.map} visible={!children || React.Children.count(children) === 0}>
         {this.renderChildren()}
       </Map>
     )
