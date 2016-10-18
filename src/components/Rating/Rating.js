@@ -29,3 +29,7 @@ export default class Rating extends React.Component {
     )
   }
 }
+
+Rating.propTypes = {
+  percentage: T.number
+}

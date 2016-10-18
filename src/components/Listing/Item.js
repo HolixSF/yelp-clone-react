@@ -11,7 +11,7 @@ export default class Item extends React.Component {
     this.onClick = this.onClick.bind(this)
   }
 
-  onClick(e) {
+  onClick (e) {
     this.props.onClick(this.props.place)
   }
 
@@ -24,4 +24,9 @@ export default class Item extends React.Component {
       </div>
     )
   }
+}
+
+Item.propTypes = {
+  onClick: T.func,
+  place: T.object
 }

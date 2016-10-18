@@ -70,6 +70,12 @@ export class Container extends React.Component {
   }
 }
 
+Container.propTypes = {
+  google: T.object,
+  children: T.object,
+  loaded: T.bool
+}
+
 Container.contextTypes = {
   router: T.object
 }

@@ -18,3 +18,8 @@ export default class Listing extends React.Component {
     )
   }
 }
+
+Listing.propTypes = {
+  places: T.array,
+  onClick: T.func
+}

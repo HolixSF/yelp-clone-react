@@ -22,3 +22,9 @@ export default class Sidebar extends React.Component {
     )
   }
 }
+
+Sidebar.propTypes = {
+  onListItemClick: T.func,
+  title: T.string,
+  places: T.array
+}
