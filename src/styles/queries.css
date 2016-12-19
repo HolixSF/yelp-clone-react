@@ -1,0 +1,2 @@
+@custom-media --screen-phone (width <= 375px);
+@custom-media --screen-phone-lg (width > 375px);

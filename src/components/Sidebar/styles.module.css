@@ -1,0 +1,31 @@
+@import url('../../styles/base.css');
+@import url('../../styles/queries.css');
+
+.sidebar {
+  height: 600px;
+  position: relative;
+  top: var(--topbar-height);
+  left: 0;
+  overflow: hidden;
+  z-index: 0;
+
+  flex: 1;
+  order: 2;
+  flex-direction: column;
+
+  @media (--screen-phone-lg) {
+    display: block;
+    flex-direction: row;
+    order: 1;
+    flex: 1;
+  }
+
+  .heading {
+    flex: 1;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 0 10px;
+
+    h1 { font-size: 1.8em; }
+  }
+}
